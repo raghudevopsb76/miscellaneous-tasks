@@ -13,9 +13,11 @@ pipeline {
 
     stage('Apply') {
       steps {
-        sh 'cd jenkins-ip-update'
-        sh 'terraform init'
-        sh 'terraform apply -auto-approve'
+        sh '''
+          cd jenkins-ip-update
+          terraform init
+          terraform apply -auto-approve
+        '''
       }
 
     }
