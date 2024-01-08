@@ -50,8 +50,8 @@ data "aws_ami" "ami" {
 }
 
 resource "aws_instance" "load-gen" {
-  ami           = data.aws_ami.ami.image_id
-  instance_type = "t3.medium"
+  ami                    = data.aws_ami.ami.image_id
+  instance_type          = "t3.medium"
   vpc_security_group_ids = ["sg-033d8567b50d2e180"]
   tags = {
     Name = "load-gen"
