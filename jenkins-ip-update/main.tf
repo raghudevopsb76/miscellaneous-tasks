@@ -58,3 +58,15 @@ resource "aws_instance" "load-gen" {
   }
 }
 
+data "aws_instance" "gocd" {
+  instance_id = "i-038e89f526420eba9"
+}
+
+resource "aws_route53_record" "gocd" {
+  name    = "gocd"
+  type    = "A"
+  zone_id = "Z0021413JFIQEJP9ZO9Z"
+  ttl     = 10
+  records = [data.aws_instance.gocd.public_ip]
+}
+
